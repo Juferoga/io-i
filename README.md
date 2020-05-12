@@ -10,6 +10,8 @@
 > Jose David Sanabria Aponte  - **COD. 20171020044**
 <br></br>
 [![Juan Felipe Rodriguez Galindo](https://img.shields.io/badge/Juferoga-github-br?style=flat-square)](https://gitlab.com/Juferoga)
+[![Mateo Nariño Rodríguez](https://img.shields.io/badge/Mateo2119-github-orange?style=flat-square)](https://github.com/Mateo2119)
+[![Jose David Sanabria](https://img.shields.io/badge/JDSA-github-orange?style=flat-square)](https://github.com/.)
 [![License](https://img.shields.io/badge/License-GPL_V.3-blue?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0.html)
 
 
