@@ -11,13 +11,13 @@
 <br></br>
 [![Juan Felipe Rodriguez Galindo](https://img.shields.io/badge/Juferoga-github-br?style=flat-square)](https://gitlab.com/Juferoga)
 [![Mateo Nariño Rodríguez](https://img.shields.io/badge/Mateo2119-github-orange?style=flat-square)](https://github.com/Mateo2119)
-[![Jose David Sanabria](https://img.shields.io/badge/JDSA-github-orange?style=flat-square)](https://github.com/.)
+[![Jose David Sanabria](https://img.shields.io/badge/JDSA-github-red?style=flat-square)](https://github.com/.)
 [![License](https://img.shields.io/badge/License-GPL_V.3-blue?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0.html)
 
 
-Investigación de Operaciones 1
+Programas y desarrollos de la materia Investigación de operaciones 1. 
 
-Programas y desarrollos de la materia Investigación de operaciones 1
+" Profesor " Alberto Acosta. 
 
 # Indice
 
