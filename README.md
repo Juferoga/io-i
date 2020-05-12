@@ -1,5 +1,3 @@
-# IO1
-Programas y desarrollos de la materia Investigación de operaciones 1
 # 👻  **Investigación de Operaciones 1**
 
 <img src="https://www.udistrital.edu.co/themes/custom/versh/images/default/preloader.png" align="left" width="192px" height="192px"/>
@@ -17,7 +15,7 @@ Programas y desarrollos de la materia Investigación de operaciones 1
 
 Investigación de Operaciones 1
 
-Desarrrollo de la materia investigacion de operaciones 1.
+Programas y desarrollos de la materia Investigación de operaciones 1
 
 # Indice
 
