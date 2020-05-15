@@ -1,34 +1,23 @@
+% PorFin 
 
-y1= 0;
-t1= 4,5;
+x = -1 : 1 : 7; % intervalo  para  generar  las  rectas
+z = (21 - 5. * x )/4;  % funcíon   a  maximizar
 
-x1= 0;
-T1= 4,5;
+% restricciones
+R1 = (24 - 6. * x )/4;
+R2 = (6 - x )/2;
+R3 = 1+x ;
 
-coefficients = polyfit([x1, t1], [y1, T1], 1);
-a = coefficients (1);
-b = coefficients (2);
+for r = 1: length ( x )  % constantes
+R4(r) = 2;
+R5(r) = 0;
+R6(r) = 0;
+end
 
-plot(a,b);
-hold on;
-
-y1= 0;
-t2= 2;
-
-x1= 0;
-T2= 6;
-
-coefficients2 = polyfit([x1, t2], [y1, T2], 1);
-c = coefficients2 (1);
-d = coefficient2s (2);
-
-plot(c,d);
-hold on;
-
-T3= 4;
-
-line ([0 1], [T3 T3], "linestyle", "-", "color", "b");
-
-title (" Minimizar z = 700T + 600t ");
-legend ('"-"', '"--"', '":"', '"-."', 'location', 'eastoutside');
-
+%grafica de las funciones considerando igualdades
+figure(1) ;
+plot(x ,z ,'-k' ) ;
+hold  on ;
+plot(x,R1,'-b',x ,R2,'-b ',x,R3,'-m',x ,R4,'-m') ;
+plot(R5,x,'-r ',x,R6,'-r ') ;
+grid on
