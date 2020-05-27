@@ -7,11 +7,13 @@
 
 > Mateo Nariño Rodriguez - **COD. 20171020017**
 
+> Jose David Sanabria Aponte 20171020044
+
 <br></br>
 [![Juan Felipe Rodriguez Galindo](https://img.shields.io/badge/Juferoga-github-br?style=flat-square)](https://gitlab.com/Juferoga)
 [![Mateo Nariño Rodríguez](https://img.shields.io/badge/Mateo2119-github-orange?style=flat-square)](https://github.com/Mateo2119)
 [![License](https://img.shields.io/badge/License-GPL_V.3-blue?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0.html)
-
+[![Juan Felipe Rodriguez Galindo](https://img.shields.io/badge/Jose-Sanabria-br?style=flat-square)](https://gitlab.com/Juferoga)
 
 Programas y desarrollos de la materia Investigación de operaciones 1. 
 
