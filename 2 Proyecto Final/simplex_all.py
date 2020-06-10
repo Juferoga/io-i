@@ -18,7 +18,8 @@ s.t
 Ax <= b
 x >= 0
 """
-
+# ingreso de variables la vaiable opti no se tinen en cuenta
+# los splits se realizan cuando encuentre espacios en blanco
 opti = input("Asegurarse que es un problema de minimización => ")
 
 c = input("Coeficientes de la función objetivo => ")
@@ -31,8 +32,11 @@ equ = input("Signos (solo use '<' or '=') => ")
 equ = np.array([str(n) for n in equ.split()])
 
 A = input("coeficientes de las restricciones => ")
+# los organiza y coloca en una matriz en este caso la matriz a la que le daremos solución
 A = [float(n) for n in A.split()]
+# realiza un redimencionamiento de la matriz con las longitudes de los vectores que adquirimos
 A = np.array(A).reshape((len(c), len(b)), order='F')
+# imprimimos la matriz para verificar que este bn
 print(A.T)
 #"""
 
@@ -41,6 +45,9 @@ print(A.T)
 # ===================================== #
 
 def check(A,b,c):
+    """Check the matrix.
+    Con la matriz ingresada se checkea la matriz
+    """
     
     a2 = np.zeros((1, len(A[0,:])), dtype=np.float64)
     a3 = np.zeros((1, len(A[0,:])), dtype=np.float64)
@@ -78,6 +85,10 @@ def check(A,b,c):
 # ============================ #
     
 def basica(A,x):
+    
+    """ Crea la matriz con las variables basicas.
+    Con la matriz ingresada crea la matrix de variables basicas
+    """
     
     B = np.zeros((len(A[:,0]), len(A[:,0])), dtype=np.float64)    
     D = np.zeros((len(A[:,0]), len(A[0,:])-len(A[:,0])), dtype=np.float64)
@@ -126,7 +137,13 @@ def cost_vector(B,D,c,x,a):
 # ============ #
 
 def phase1(A,b,c,equ):
-       
+   
+    
+    """Realizaciòn fase 1.
+    Le damos un procesamiento a la matriz
+    con base en la primera fase del metodo simplex.
+    """
+    
     # Variables artificiales
     ar = list(np.zeros(len(equ), dtype=int))
     A1 = np.vstack((A.T, c)).T
@@ -237,7 +254,11 @@ def phase1(A,b,c,equ):
 # ======================= #
     
 def rev_simplex(a_,b_,cd_,a,x):
-
+   
+    """Revisión Simplex.
+    Le damos un procesamiento a la matriz
+    con base en el método simplex.
+    """
     for i in range (len(cd_)):
                     
         if cd_[i] == min(cd_):
@@ -274,6 +295,10 @@ def rev_simplex(a_,b_,cd_,a,x):
     
 def rev_dual(B,D,b,c,a,x):
     
+    """Aqui revisamos Simplex dual.
+    Le damos un procesamiento a la matriz
+    con base en el método simplex dual.
+    """
     b_ = np.dot(np.linalg.inv(B), b)
     contador_iter = 0
     
@@ -351,6 +376,12 @@ def rev_dual(B,D,b,c,a,x):
     
 def solver(A,B,D,a,b,x):
     
+    """Solucionador del problema de otimzacón.
+    
+    Verifica con varios metodos la solucion si
+    se puede con otra solucion se realiza, de lo
+    contrario sigue con los metodos consecuentes
+    """
     contador_iter = 0
 
     if np.linalg.det(B) == 0:
@@ -416,6 +447,10 @@ def solver(A,B,D,a,b,x):
 
 def s_optima(x,c,B,b):
     
+    """Encuentra la solucion otima.
+    Con la matriz ingresada se busca despues de realizar la
+    solucion, se busca el valor mínimo de la función.
+    """
     if x == [0]:
         opti_x = []
         z = []
