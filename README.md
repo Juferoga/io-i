@@ -7,7 +7,7 @@
 
 > Mateo Nariño Rodriguez - **COD. 20171020017**
 
-> Jose David Sanabria Aponte 20171020044
+> Jose David Sanabria Aponte - **COD. 20171020044**
 
 <br></br>
 [![Juan Felipe Rodriguez Galindo](https://img.shields.io/badge/Juferoga-github-br?style=flat-square)](https://gitlab.com/Juferoga)
