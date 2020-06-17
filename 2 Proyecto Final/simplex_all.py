@@ -18,27 +18,7 @@ s.t
 Ax <= b
 x >= 0
 """
-# ingreso de variables la vaiable opti no se tinen en cuenta
-# los splits se realizan cuando encuentre espacios en blanco
-opti = input("Asegurarse que es un problema de minimización => ")
 
-c = input("Coeficientes de la función objetivo => ")
-c = np.array([float(n) for n in c.split()])
-
-b = input("Restricciones (S.A.) => ")
-b = np.array([float(n) for n in b.split()])
-
-equ = input("Signos (solo use '<' or '=') => ")
-equ = np.array([str(n) for n in equ.split()])
-
-A = input("coeficientes de las restricciones => ")
-# los organiza y coloca en una matriz en este caso la matriz a la que le daremos solución
-A = [float(n) for n in A.split()]
-# realiza un redimencionamiento de la matriz con las longitudes de los vectores que adquirimos
-A = np.array(A).reshape((len(c), len(b)), order='F')
-# imprimimos la matriz para verificar que este bn
-print(A.T)
-#"""
 
 # ===================================== #
 # Analizando la matriz de restricciones #
@@ -374,7 +354,7 @@ def rev_dual(B,D,b,c,a,x):
 # solucionar Problema de Optimización  #
 # ==================================== #
     
-def solver(A,B,D,a,b,x):
+def solver(A,B,D,a,b,x,c):
     
     """Solucionador del problema de otimzacón.
     
@@ -480,17 +460,29 @@ c = np.asarray([3,-1,-7,3,1], dtype=np.float64)
 b = np.asarray([20,8], dtype=np.float64)
 equ = np.asarray(['=','='], dtype=np.str)
 """
+def main(c,b,equ,A):
+    # ingreso de variables la vaiable opti no se tinen en cuenta
+    # los splits se realizan cuando encuentre espacios en blanco
+    c = np.array([float(n) for n in c.split()])
+    b = np.array([float(n) for n in b.split()])
+    equ = np.array([str(n) for n in equ.split()])
+    # los organiza y coloca en una matriz en este caso la matriz a la que le daremos solución
+    A = [float(n) for n in A.split()]
+    # realiza un redimencionamiento de la matriz con las longitudes de los vectores que adquirimos
+    A = np.array(A).reshape((len(c), len(b)), order='F')
+    # imprimimos la matriz para verificar que este bn
+    print(A.T)
+    #"""
+    if (equ == '=').any():
+        A,B,D,c,x = phase1(A,b,c,equ)
+    else:
+        A,B,D,c,x = check(A,b,c)
 
-if (equ == '=').any():
-    A,B,D,c,x = phase1(A,b,c,equ)
-else:
-    A,B,D,c,x = check(A,b,c)
+    B,D,a = basica(A,x)
 
-B,D,a = basica(A,x)
+    B,D,a,x = solver(A,B,D,a,b,x,c)
+    opti_x,z = s_optima(x,c,B,b)
 
-B,D,a,x = solver(A,B,D,a,b,x)
-opti_x,z = s_optima(x,c,B,b)
-
-print("_________________________________________")
-print(" Solución Optima: x =", opti_x, ", z =", z)
-print("_________________________________________")
+    print("_________________________________________")
+    print(" Solución Optima: x =", opti_x, ", z =", z)
+    print("_________________________________________")
