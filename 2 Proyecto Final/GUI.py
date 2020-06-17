@@ -7,8 +7,8 @@ Created on Wed Jun 10 10:18:41 2020
 from tkinter import *
 from numpy import *
 import simplex_all as Simplex
-
 app = Tk()
+
 app.geometry("1000x800")
 
 equi = [0 for columna in range(0,6)]
@@ -61,7 +61,12 @@ def llamadoLee():
     E=NRE.get()
     A=NVA.get()
     c,b,equ,A = leer(C,E, A)
-    Simplex.main(c,b,equ,A)
+    opti_x,z = Simplex.main(c,b,equ,A)
+    v = " Solución Optima: x =", opti_x, ", z =", z
+    label = Label(app, text=v).pack()
+    
+    #labelFinal = Label(app, text="Solucion optima x= " + opti_x + ",z= " + z)
+    #labelFinal.pack()
     
     
 def definirFO(TC,RE,VA): #define la interfaz que se va a utilizar para la toma de datos
@@ -87,8 +92,9 @@ def definirFO(TC,RE,VA): #define la interfaz que se va a utilizar para la toma d
             datos[i+1][j+1].pack()
         datos[i+1][5].pack()
         datos[i+1][6].pack()
-        l = Label(app, text="----------------").pack()
-    BotonS.pack()           
+        l = Label(app, text="",pady=5).pack()
+    BotonS.pack()  
+          
             
 def leer(TC,RE,VA):
     c=""
@@ -108,8 +114,18 @@ def leer(TC,RE,VA):
             A= A + datos[i+1][j+1].get() + " "
     print(c,b,equ,A)
     return c,b,equ,A
+
     
-BotonS = Button(app, text="calcularSimplex", pady=10, command=llamadoLee) #boton para ejecutar simplex 
+  
+    for i in range(0,RE):
+        for j in range(0,VA):
+            datos[i+1][j+1].pack_forget()
+        datos[i+1][5].pack_forget()
+        datos[i+1][6].pack_forget()
+    BotonS.pack_forget()
+    BotonV.pack_forget()
+    
+BotonS = Button(app, text="calcularSimplex", pady=10, command=llamadoLee) #boton para ejecutar simplex
 Boton = Button(app, text="Generar", pady=10, command=Llamado) #boton para constuir la funcion objetivo con sus restrricciones
 Boton.pack()
 

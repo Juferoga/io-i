@@ -273,7 +273,7 @@ def rev_simplex(a_,b_,cd_,a,x):
 # Revised Dual Simplex Method #
 # =========================== #
     
-def rev_dual(B,D,b,c,a,x):
+def rev_dual(A,B,D,b,c,a,x):
     
     """Aqui revisamos Simplex dual.
     Le damos un procesamiento a la matriz
@@ -376,7 +376,7 @@ def solver(A,B,D,a,b,x,c):
             # Revisando el método Simplex Dual #
             # ================================ #
                         
-            B,D,a,x = rev_dual(B,D,b,c,a,x)
+            B,D,a,x = rev_dual(A,B,D,b,c,a,x)
                     
         else:
             
@@ -483,6 +483,5 @@ def main(c,b,equ,A):
     B,D,a,x = solver(A,B,D,a,b,x,c)
     opti_x,z = s_optima(x,c,B,b)
 
-    print("_________________________________________")
-    print(" Solución Optima: x =", opti_x, ", z =", z)
-    print("_________________________________________")
+    return opti_x,z
+    
